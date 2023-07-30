@@ -1,0 +1,10 @@
+<form action="{{ path('order') }}" method="post" id="shippingMethodForm">
+    {% for shippingMethod in shippingMethods %}
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="shippingMethod" id="shippingMethod{{ shippingMethod.id }}" value="{{ shippingMethod.id }}" {% if shippingMethod.id == selectedShippingMethodId %}checked{% endif %}>
+            <label class="form-check-label" for="shippingMethod{{ shippingMethod.id }}">
+                {{ shippingMethod.name }} {{ shippingMethod.price }} zł
+            </label>
+        </div>
+    {% endfor %}
+</form>

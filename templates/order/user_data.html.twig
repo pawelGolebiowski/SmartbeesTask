@@ -1,0 +1,37 @@
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                {{ form(loginForm) }}
+            </div>
+        </div>
+    </div>
+</div>
+<button type="button" class="btn btn-primary custom-button" data-bs-toggle="modal" data-bs-target="#loginModal">Logowanie</button>
+<p class="login-hint">Masz już konto? Kliknij, żeby się zalogować</p>
+
+<div class="form-check form-check-inline">
+    <input type="checkbox" id="createNewAccountCheckbox" name="createNewAccount" class="form-check-input" />
+    <label for="createNewAccountCheckbox" class="form-check-label">Stwórz nowe konto</label>
+</div>
+
+<div id="userForm" style="display: none;">
+    {% form_theme userForm 'bootstrap_5_layout.html.twig' %}
+    {{ form_start(userForm, {'attr': {'class': 'form-control'}}) }}
+    {{ form_widget(userForm) }}
+    {{ form_end(userForm) }}
+</div>
+<div class="form-check form-check-inline">
+    <input type="checkbox" id="differentAddressCheckbox" name="shippingToDifferentAddress" class="form-check-input" />
+    <label for="differentAddressCheckbox">Dostawa pod inny adres</label>
+</div>
+<div id="differentAddressForm" style="display: none;">
+    {% form_theme userDeliveryForm 'bootstrap_5_layout.html.twig' %}
+    {{ form_start(userDeliveryForm, {'attr': {'class': 'form-control'}}) }}
+    {{ form_row(userDeliveryForm.city, {'attr': {'class': 'form-control'}}) }}
+    {{ form_row(userDeliveryForm.postalCode, {'attr': {'class': 'form-control'}}) }}
+    {{ form_row(userDeliveryForm.address, {'attr': {'class': 'form-control'}}) }}
+    {{ form_end(userDeliveryForm) }}
+</div>
+</div>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>

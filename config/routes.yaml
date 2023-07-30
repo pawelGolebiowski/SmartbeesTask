@@ -1,0 +1,27 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+controllers:
+  resource: ../src/Controller/
+  type: annotation
+kernel:
+  resource: ../src/Kernel.php
+  type: annotation
+order:
+  path: /
+  controller: App\Controller\OrderController::order
+check_discount_code:
+  path: /check_discount_code/{discountCode}
+  controller: App\Controller\ApiController::checkDiscountCode
+  methods: [ 'GET' ]
+get_payment_methods:
+  path: /get_payment_methods/{shippingMethodId}
+  controller: App\Controller\ApiController::getPaymentMethods
+  methods: [ 'GET' ]
+place_order:
+  path: /place_order
+  controller: App\Controller\ApiController::placeOrder
+  methods: ['POST']
+
+
+

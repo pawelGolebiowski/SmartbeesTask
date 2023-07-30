@@ -1,0 +1,46 @@
+<div class="products-list">
+    <ul>
+        {% for product in products %}
+            <li class="d-flex justify-content-between">
+                <div class="product-info">
+                    <div class="product-name">
+                        {{ product.name }}
+                    </div>
+                    <div class="product-quantity">
+                        Ilość: {{ product.quantity }}
+                    </div>
+                </div>
+                <div class="product-price">
+                    Cena: {{ product.price }} zł
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+<hr class="separator-line">
+<div class="total-price">
+    {% if discountCode %}
+        <div id="discountCodeMessage"></div>
+    {% endif %}
+    <h2>Łącznie: <div id="totalOrderPrice"></div></h2>
+    <hr class="separator-line">
+    </p>
+</div>
+<div class="comment">
+    <textarea id="comment" name="comment" rows="3" cols="40" placeholder="Komentarz"></textarea>
+</div>
+<div class="newsletter">
+    <input type="checkbox" id="newsletterCheckbox" name="newsletter" class="form-check-input" />
+    <label for="newsletterCheckbox">Zapisz się, aby otrzymywać newsletter</label>
+</div>
+<div class="regulations">
+    <input type="checkbox" id="regulationsCheckbox" name="regulations" class="form-check-input"/>
+    <label for="regulationsCheckbox">Zapoznałem się z Regulaminem</label>
+</div>
+<button type="button" class="btn btn-primary confirm-button" id="confirmPurchaseBtn">Potwierdź zakup</button>
+<div class="newsletter-confirmation" style="display: none;">
+    Dziękujemy za zapisanie się do newslettera
+</div>
+<div class="order-confirmation" style="display: none;">
+    Dziękujemy za zamówienie! Twój numer zamówienia to: <span id="orderNumber"></span>
+</div>

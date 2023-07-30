@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('build/order.css') }}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="section-wrapper">
+            <div class="section-title">
+                <img src="{{ asset('icon/user.png') }}" class="icon">
+                <h1>1. Twoje dane</h1>
+            </div>
+
+            {% include 'order/user_data.html.twig' %}
+
+            <div class="section-wrapper">
+                <div class="payment-methods-wrapper">
+                    <div class="section-wrapper">
+                        <div class="section-title">
+                            <img src="{{ asset('icon/delivery.png') }}" class="icon">
+                            <h1>2. Metody dostawy</h1>
+                        </div>
+
+                        {% include 'order/shipping_methods.html.twig' %}
+
+                    </div>
+                    <div class="section-wrapper">
+                        <div class="section-title">
+                            <img src="{{ asset('icon/payment.png') }}" class="icon">
+                            <h1>3. Metoda płatności</h1>
+                        </div>
+
+                        {% include 'order/payment_methods.html.twig' %}
+
+                    </div>
+                </div>
+
+                {% include 'order/discount_code.html.twig' %}
+
+            </div>
+            <div class="summary-wrapper">
+                <div class="section-title">
+                    <img src="{{ asset('icon/summary.png') }}" class="icon">
+                    <h1>4. Podsumowanie</h1>
+                </div>
+
+                {% include 'order/order_summary.html.twig' %}
+
+            </div>
+        </div>
+    </div>
+    <script>
+        let totalOrderPriceWithoutDiscount = {{ totalOrderPriceWithoutDiscount }};
+    </script>
+{% endblock %}
